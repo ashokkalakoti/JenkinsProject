@@ -15,7 +15,8 @@ pipeline {
 
     stage('wait for confirm') {
       steps {
-        input(message: 'Deploy to Prod?', ok: 'Yes Let\'s do it.!')
+        timeout(time:1, unit:"DAYS") {
+          input(message: 'Deploy to Prod?', ok: 'Yes Let\'s do it.!')
       }
     }
 
